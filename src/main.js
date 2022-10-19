@@ -6,10 +6,15 @@ import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css' 
 import './plugins/element.js'
 import './assets/css/global.css'
+import './assets/fonts/iconfont.css'
 
 
 Vue.config.productionTip = false
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+axios.interceptors.request.use(config => {  //添加拦截器
+  config.headers.Authorization = window.sessionStorage.getItem('token') 
+  return config //在最后必须return config
+})
 Vue.prototype.$axios = axios
 
 
