@@ -9,6 +9,7 @@ import './assets/css/global.css'
 import './assets/fonts/iconfont.css'
 
 
+
 Vue.config.productionTip = false
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 axios.interceptors.request.use(config => {  //添加拦截器
@@ -16,6 +17,7 @@ axios.interceptors.request.use(config => {  //添加拦截器
   return config //在最后必须return config
 })
 Vue.prototype.$axios = axios
+
 
 
 new Vue({

@@ -11,6 +11,7 @@
                 角色列表
             </el-breadcrumb-item>
         </el-breadcrumb>
+        <!--卡片-->
         <el-card>
             <el-row>
                 <el-col>
@@ -66,6 +67,7 @@
                 </el-table-column>
             </el-table>
         </el-card>
+        
         <!--添加角色的对话框-->
         <el-dialog  title="添加角色" :visible.sync="addRoleDialogVisible" width="50%" @close="addRoleDialogClosed">
             <el-form :model="newRole"  :rules="addRoleRules" ref="addRoleRef">
@@ -152,6 +154,7 @@ export default {
             if(res.meta.status !== 200) return this.$message.error('获取角色列表失败')
             this.rolesList = res.data
         },
+        //删除权限
         async removeRightById(role, rightid){
             const confirmResult = await this.$confirm('此操作将永久删除文件，是否继续？','提示',{
                 confirmButtonText: '确定',
