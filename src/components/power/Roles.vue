@@ -154,6 +154,7 @@ export default {
             if(res.meta.status !== 200) return this.$message.error('获取角色列表失败')
             this.rolesList = res.data
         },
+         //-----------------------------------------------------------------------------------
         //删除权限
         async removeRightById(role, rightid){
             const confirmResult = await this.$confirm('此操作将永久删除文件，是否继续？','提示',{
@@ -166,6 +167,7 @@ export default {
             this.$message.success('删除权限成功')
             role.children = res.data
         },
+         //-----------------------------------------------------------------------------------
         //展示修改角色的对话框
         async showEditRoleDialog(row){
             const {data: res} = await this.$axios.get(`roles/${row.id}`)
@@ -191,7 +193,7 @@ export default {
                 this.editRoleDialogVisible = false
             })
         },
-
+        //-----------------------------------------------------------------------------------
         //展示添加角色的对话框
         addRoleDialog(){
             this.addRoleDialogVisible = true
@@ -211,6 +213,7 @@ export default {
         addRoleDialogClosed(){
             this.$refs.addRoleRef.resetFields()
         },
+         //-----------------------------------------------------------------------------------
         //删除角色
         async deleteRole(row){
             const confirmResule = await this.$confirm('此操作将永久删除角色，是否继续？',{
@@ -224,6 +227,7 @@ export default {
             this.$message.success('删除成功')
             this.getRolesList()
         },
+         //-----------------------------------------------------------------------------------
         //展示分配权限的对话框
         async showSetRightDialog(role){
             //获取所有权限的数据

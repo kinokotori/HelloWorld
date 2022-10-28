@@ -143,12 +143,14 @@ export default {
             this.cateList = res.data.result
             this.total = res.data.total    
         },
+        
         //获取父级分类的数据列表
         async getParentCateList(){
             const {data: res} = await this.$axios.get('categories',{ params: { type: 2 }})
             if(res.meta.status !== 200) return this.$message.error('获取失败')
             this.parentCateList = res.data
         },
+        //-----------------------------------------------------------------------------------
         //监听pagesize改变
         handleSizeChange(newSize){
             this.queryInfo.pagesize = newSize
@@ -160,7 +162,7 @@ export default {
             this.getCateList()
         },
 
-
+        //-----------------------------------------------------------------------------------
         //添加对话框开启
         showAddCateDialog(){
             this.addCateDialogVisible = true
@@ -199,7 +201,7 @@ export default {
             })
             
         },
-
+        //-----------------------------------------------------------------------------------
         //修改分类对话框开启
         async showEditCatedialog(id){
             this.editCateDialogVisible = true
@@ -220,7 +222,7 @@ export default {
             this.editCateDialogVisible = false
             this.getCateList()
         },
-
+        //-----------------------------------------------------------------------------------
 
         //删除分类
         async deleteCate(id){
